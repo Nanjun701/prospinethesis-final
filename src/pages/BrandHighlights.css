@@ -1,0 +1,115 @@
+@import url('../App.css');
+
+.brand-highlights-container {
+  padding: 50px 20px;
+  max-width: 960px;
+  margin: 0 auto;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.brand-highlights-container h1 {
+  text-align: center;
+  color: var(--xray-start-color);
+  margin-bottom: 40px;
+  font-size: 2.8em;
+}
+
+.intro-text {
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 60px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.highlight-section {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 80px;
+  gap: 50px;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  flex-wrap: wrap;
+}
+
+.highlight-section:last-child {
+    border-bottom: 1px solid #eee;
+}
+
+.highlight-section.reverse-layout {
+  flex-direction: row-reverse;
+}
+
+.highlight-content {
+  flex: 1;
+  min-width: 300px;
+  border-left: 3px solid transparent;
+  border-image: var(--xray-gradient);
+  border-image-slice: 1;
+  padding-left: 20px;
+}
+
+.highlight-content h2 {
+  color: var(--xray-start-color);
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.highlight-content p {
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.highlight-image {
+  flex: 1;
+  min-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border: 2px solid transparent;
+  border-image: var(--xray-gradient);
+  border-image-slice: 1;
+  padding: 10px;
+  border-radius: 0;
+}
+
+.highlight-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+@media (max-width: 768px) {
+  .highlight-section,
+  .highlight-section.reverse-layout {
+    flex-direction: column;
+    text-align: left;
+    gap: 30px;
+  }
+
+  .highlight-content,
+  .highlight-image {
+    min-width: 100%;
+    width: 100%;
+    padding-left: 0;
+    border-left: none;
+    border-image: none;
+    
+    border-bottom: 2px solid var(--xray-start-color);
+    padding-bottom: 15px;
+  }
+  
+  .highlight-image {
+      border: none;
+      padding: 0;
+  }
+
+  .highlight-image img {
+      border: 2px solid transparent;
+      border-image: var(--xray-gradient);
+      border-image-slice: 1;
+  }
+}
