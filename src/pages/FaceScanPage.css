@@ -1,0 +1,172 @@
+@import url('../App.css');
+
+:root {
+  --xray-main-color: var(--xray-start-color);
+  --xray-background: var(--background-color);
+  --xray-scan-line-color: white;
+}
+
+.scan-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); 
+  padding: 40px 20px;
+  background-color: var(--xray-background);
+}
+
+.face-scan-container {
+  display: flex;
+  gap: 30px;
+  background: var(--xray-background);
+  padding: 20px;
+  border: 2px solid var(--xray-main-color);
+}
+
+.camera-viewport {
+  position: relative;
+  width: 300px;
+  height: 650px;
+  overflow: hidden;
+  /* 移除圆角和阴影，使用主题色边框 */
+  border: 5px solid var(--xray-main-color);
+}
+
+.live-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  filter: grayscale(100%) contrast(1.2) brightness(0.8);
+}
+
+@keyframes scan-animate {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(650px); }
+}
+
+.scan-effect-spine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.scan-line-spine {
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  background: linear-gradient(90deg, transparent, var(--xray-scan-line-color), transparent);
+  animation: scan-animate 8s linear infinite;
+  box-shadow: none;
+}
+
+.scan-sidebar {
+  width: 250px;
+  color: var(--text-color);
+  text-align: left;
+}
+
+.scan-sidebar h2 {
+    color: var(--xray-main-color);
+}
+
+.spine-progress-area {
+  margin-top: 40px;
+}
+
+.progress-bar-container {
+  height: 15px;
+  background: #e0e0e0;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid var(--xray-main-color);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-image: var(--xray-gradient);
+  box-shadow: none;
+  transition: width 0.5s ease-out;
+}
+
+.stage-list {
+    border-left: 2px solid #ccc;
+    padding-left: 15px;
+}
+
+.stage-item {
+  padding: 8px 0;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.stage-item.active {
+  color: var(--xray-main-color);
+  font-weight: bold;
+}
+
+.stage-item.completed {
+  color: var(--xray-main-color);
+  opacity: 0.8;
+}
+
+.analysis-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.analysis-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(10, 83, 147, 0.3);
+  border-top-color: var(--xray-main-color);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+    .face-scan-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .camera-viewport {
+        width: 100%;
+        height: 400px; 
+    }
+    
+    .scan-sidebar {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .spine-progress-area {
+        margin-top: 15px;
+    }
+    
+    .stage-list {
+        border-left: none;
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}

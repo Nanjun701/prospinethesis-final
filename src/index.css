@@ -1,0 +1,250 @@
+:root {
+  --xray-start-color: #00BFFF;
+  --xray-end-color: #000000;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --xray-gradient: linear-gradient(to right, var(--xray-start-color), var(--xray-end-color));
+}
+
+@font-face {
+  font-family: 'ProspinethesisCustom';
+  src: url('./assets/fonts/MyFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: var(--background-color);
+  box-shadow: none;
+  border-bottom: 2px solid transparent;
+  border-image: var(--xray-gradient);
+  border-image-slice: 1;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-link {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.main-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--xray-start-color);
+}
+
+.xray-button {
+  display: inline-block;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  border-image: var(--xray-gradient);
+  border-image-slice: 1;
+}
+
+.xray-button:hover {
+  color: white;
+  background-image: var(--xray-gradient);
+  border-image: none;
+  border: 3px solid transparent;
+  box-shadow: none;
+}
+
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  text-align: center;
+  padding-top: 50px;
+}
+
+.tagline-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: var(--xray-start-color);
+  text-shadow: none;
+}
+
+.button-selection-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.detection-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.loading-bar {
+  width: 250px;
+  height: 5px;
+  margin: 15px 0;
+  background: var(--xray-gradient);
+  transition: width 0.8s ease-out;
+}
+
+@keyframes loading-animation {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+.loading-progress-active {
+    animation: loading-animation 3s ease-in-out forwards;
+}
+
+.match-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  max-width: 500px;
+}
+
+.result-description {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.shop-page-container {
+  padding: 40px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shop-page-container h1 {
+  font-size: 2.5rem;
+  color: var(--xray-start-color);
+  border-bottom: 3px solid transparent;
+  border-image: var(--xray-gradient);
+  border-image-slice: 1;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.shop-intro {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.product-card {
+  padding: 20px;
+  background-color: var(--background-color);
+  transition: transform 0.3s ease;
+  height: 100%;
+  border: 2px solid transparent;
+  border-image: var(--xray-gradient);
+  border-image-slice: 1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+}
+
+.product-card:hover {
+  transform: none;
+  box-shadow: none;
+  border: 2px solid var(--xray-start-color);
+}
+
+.product-name {
+  font-size: 1.4rem;
+  margin-top: 0;
+  color: var(--text-color);
+}
+
+.product-tag {
+  font-size: 0.8rem;
+  color: var(--xray-start-color);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-desc {
+  font-size: 1rem;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--xray-start-color);
+}
+
+.card-view-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-image: var(--xray-gradient);
+  border-image-slice: 1;
+}
+
+.card-view-btn:hover {
+  color: white;
+  background-image: var(--xray-gradient);
+  border-image: none;
+  border: 2px solid transparent;
+}

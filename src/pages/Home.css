@@ -1,0 +1,11 @@
+@import url('../App.css');
+
+.home-page-container {
+    min-height: calc(100vh - 80px);
+    
+    background-image: none;
+    position: static;
+    top: auto;
+    left: auto;
+    z-index: auto;
+}
